@@ -2,7 +2,7 @@ import axios from "axios";
 import * as cheerio from "cheerio";
 import { footballLeagues } from "../utils/data.js";
 
-const BASE_URL = "http://localhost:3000/standing";
+const BASE_URL = "https://football-api-express.vercel.app/standing";
 
 export const getLeagueStanding = async (req, res) => {
   const league = req.params.league;
