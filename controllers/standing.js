@@ -6,7 +6,7 @@ const BASE_URL = "https://football-api-express.vercel.app/standing";
 
 export const getLeagueStanding = async (req, res) => {
   const league = req.params.league;
-  const leagueData = footballLeagues.find((e) => e.name == league);
+  const leagueData = footballLeagues.find((e) => e.path == league);
 
   if (!leagueData) {
     return res.status(400).json({
@@ -66,6 +66,7 @@ export const getLeagueStanding = async (req, res) => {
   return res.status(200).json({
     meta: {
       total: table.length,
+      league: leagueData.name,
     },
     data: table,
   });
